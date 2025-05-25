@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <!-- Кнопка назад -->
+    <ImageButton
+        android:id="@+id/btn_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@android:drawable/ic_menu_revert"
+        android:background="@drawable/round_button_bg"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        app:tint="@android:color/white" />
+
+    <!-- Кнопка переключения отображения -->
+    <Button
+        android:id="@+id/btn_toggle_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="%"
+        android:textSize="18sp"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="#2E3A59"
+        android:background="@drawable/round_button_bg"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true" />
+
+    <!-- Заголовок -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Динамика трат"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#2E3A59"
+        android:layout_toEndOf="@id/btn_back"
+        android:layout_toStartOf="@id/btn_toggle_view"
+        android:layout_alignTop="@id/btn_back"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp" />
+
+    <!-- Выбор периода -->
+    <Spinner
+        android:id="@+id/dateFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_back"
+        android:layout_marginTop="16dp" />
+
+    <!-- Отображение произвольного диапазона -->
+    <TextView
+        android:id="@+id/customDateLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dateFilter"
+        android:paddingTop="4dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#444444"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <!-- Линейная диаграмма -->
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/lineChart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/customDateLabel"
+        android:layout_marginTop="12dp"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>
